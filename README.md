@@ -1,7 +1,7 @@
 About r-cli
 ===========
 
-Home: https://cran.r-project.org/web/packages/cli
+Home: https://github.com/r-lib/cli
 
 Package license: MIT
 
