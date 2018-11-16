@@ -14,9 +14,8 @@ Summary: A suite of tools designed to build attractive command line interfaces (
 Current build status
 ====================
 
-[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-cli-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-cli-feedstock)
-[![OSX](https://img.shields.io/travis/conda-forge/r-cli-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-cli-feedstock)
-[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-cli-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-cli-feedstock/branch/master)
+All platforms:
+[![noarch](https://img.shields.io/circleci/project/github/conda-forge/r-cli-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/r-cli-feedstock)
 
 Current release info
 ====================
