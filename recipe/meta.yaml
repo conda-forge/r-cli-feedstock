@@ -27,10 +27,14 @@ requirements:
     - r-base
     - r-assertthat
     - r-crayon >=1.3.4
+    - r-glue
+    - r-fansi
   run:
     - r-base
     - r-assertthat
     - r-crayon >=1.3.4
+    - r-glue
+    - r-fansi
 
 test:
   commands:
