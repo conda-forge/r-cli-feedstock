@@ -1,4 +1,4 @@
-{% set version = "2.0.1" %}
+{% set version = "2.0.2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,10 +10,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/cli_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/cli/cli_{{ version }}.tar.gz
-  sha256: bedc6a61c1dd3a789105565ba919da8d3a2b78b238256bab99cd6222e7894874
+  sha256: 490834e5b80eb036befa0e150996bcab1c4d5d168c3d45209926e52d0d5413b6
 
 build:
-  merge_build_host: True  # [win]
+  merge_build_host: true  # [win]
   number: 0
   noarch: generic
   rpaths:
@@ -44,13 +44,13 @@ test:
 about:
   home: https://github.com/r-lib/cli
   license: MIT
-  summary: A suite of tools designed to build attractive command line interfaces ('CLIs'). Includes
-    tools for drawing rules, boxes, trees, and 'Unicode' symbols with 'ASCII' alternatives.
+  summary: A suite of tools designed to build attractive command line interfaces ('CLIs'). Includes tools for drawing rules, boxes, trees, and 'Unicode' symbols with
+    'ASCII' alternatives.
   license_family: MIT
-  license_file: 
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
     - LICENSE
-    
+
 extra:
   recipe-maintainers:
     - conda-forge/r
