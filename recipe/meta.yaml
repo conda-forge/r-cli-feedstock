@@ -1,4 +1,4 @@
-{% set version = '3.0.1' %}
+{% set version = "3.1.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/cli_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/cli/cli_{{ version }}.tar.gz
-  sha256: d89a25b6cd760e157605676e104ce65473a7d8d64c289efdd9640e949968b4fd
+  sha256: c70a61830bf706a84c59eb74a809978846cee93742198ab4192742a5df1ace11
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -49,14 +49,11 @@ test:
 about:
   home: https://cli.r-lib.org, https://github.com/r-lib/cli#readme
   license: MIT
-  summary: 'A suite of tools to build attractive command line interfaces (''CLIs''), from semantic
-    elements: headings, lists, alerts, paragraphs, etc. Supports custom themes via a
-    ''CSS''-like language. It also contains a number of lower level ''CLI'' elements:
-    rules, boxes, trees, and ''Unicode'' symbols with ''ASCII'' alternatives. It support
-    ANSI colors and text styles as well.'
+  summary: "A suite of tools to build attractive command line interfaces ('CLIs'), from semantic elements: headings, lists, alerts, paragraphs, etc. Supports custom themes via a 'CSS'-like language. It also contains a number of lower level 'CLI' elements: rules, boxes, trees, and 'Unicode' symbols with 'ASCII' alternatives.\
+    \ It support ANSI colors and text styles as well."
   license_family: MIT
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
     - LICENSE
 
 extra:
