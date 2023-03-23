@@ -1,11 +1,26 @@
+About r-cli-feedstock
+=====================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-cli-feedstock/blob/main/LICENSE.txt)
+
 About r-cli
-===========
+-----------
 
 Home: https://cli.r-lib.org
 
 Package license: MIT
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-cli-feedstock/blob/main/LICENSE.txt)
+Summary: A suite of tools to build attractive command line interfaces ('CLIs'), from semantic elements: headings, lists, alerts, paragraphs, etc. Supports custom themes via a 'CSS'-like language. It also contains a number of lower level 'CLI' elements: rules, boxes, trees, and 'Unicode' symbols with 'ASCII' alternatives. It support ANSI colors and text styles as well.
+
+Development: https://github.com/r-lib/cli
+
+Documentation: https://cli.r-lib.org/reference/index.html
+About r-cli
+-----------
+
+Home: https://cli.r-lib.org
+
+Package license: MIT
 
 Summary: A suite of tools to build attractive command line interfaces ('CLIs'), from semantic elements: headings, lists, alerts, paragraphs, etc. Supports custom themes via a 'CSS'-like language. It also contains a number of lower level 'CLI' elements: rules, boxes, trees, and 'Unicode' symbols with 'ASCII' alternatives. It support ANSI colors and text styles as well.
 
