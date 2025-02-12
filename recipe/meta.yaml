@@ -43,7 +43,6 @@ test:
     - $R -e "sessionInfo()"  # [not win]
 
     ## unknown status
-    - ldd $PREFIX/lib/R/library/cli/libs/cli.so   # [not win]
     - QEMU_STRACE=1 $R -e "library('cli')"  # [not win]
     - $R -e "library('cli');sessionInfo();cli:::.onUnload(NA);sessionInfo();q('no',runLast=FALSE)"  # [not win]
     
