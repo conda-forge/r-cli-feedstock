@@ -38,12 +38,14 @@ requirements:
     - r-base
 
 test:
+  requires:
+    - valgrind
   commands:
     ## known passing
     - $R -e "sessionInfo()"  # [not win]
 
     ## unknown status
-    - QEMU_STRACE=1 $R -e "library('cli')"  # [not win]
+    - QEMU_STRACE=1 $R -d valgrind -e "library('cli')"  # [not win]
     - $R -e "library('cli');sessionInfo();cli:::.onUnload(NA);sessionInfo();q('no',runLast=FALSE)"  # [not win]
     
     ## known failing
