@@ -40,9 +40,11 @@ requirements:
 test:
   commands:
     - $R -e "sessionInfo()"  # [not win]
-    - $R -e "library('cli');sessionInfo();getHook('onUnload');q('no',runLast=FALSE)"  # [not win]
-    - $R -e "library('cli');sessionInfo();getHook('onUnload');q(runLast=FALSE)"  # [not win]
-    - $R -e "library('cli');sessionInfo();getHook('onUnload');q(runLast=TRUE)"  # [not win]
+    - $R -e "library('cli');sessionInfo();unloadNamespace('cli');sessionInfo();q('no',runLast=FALSE)"  # [not win]
+    - $R -e "library('cli');sessionInfo();cli:::.onUnload(NA);sessionInfo();q('no',runLast=FALSE)"  # [not win]
+    - $R -e "library('cli');sessionInfo();q('no',runLast=FALSE)"  # [not win]
+    - $R -e "library('cli');sessionInfo();q(runLast=FALSE)"  # [not win]
+    - $R -e "library('cli');sessionInfo();q(runLast=TRUE)"  # [not win]
     - $R -e "library('cli')"           # [not win]
     - "\"%R%\" -e \"library('cli')\""  # [win]
 
