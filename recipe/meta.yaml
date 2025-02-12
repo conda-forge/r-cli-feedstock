@@ -16,6 +16,7 @@ build:
   rpaths:
     - lib/R/lib/
     - lib/
+  skip: true  # [not ppc64le]
 
 requirements:
   build:
@@ -38,6 +39,10 @@ requirements:
 
 test:
   commands:
+    - $R -e "sessionInfo()"  # [not win]
+    - $R -e "library('cli');sessionInfo();getHook('onUnload');q('no',runLast=FALSE)"  # [not win]
+    - $R -e "library('cli');sessionInfo();getHook('onUnload');q(runLast=FALSE)"  # [not win]
+    - $R -e "library('cli');sessionInfo();getHook('onUnload');q(runLast=TRUE)"  # [not win]
     - $R -e "library('cli')"           # [not win]
     - "\"%R%\" -e \"library('cli')\""  # [win]
 
