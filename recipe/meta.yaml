@@ -42,8 +42,7 @@ requirements:
 
 test:
   commands:
-    - $R -e "library('cli')"                  # [not (win or ppc64le)]
-    - CLI_NO_THREAD=1 $R -e "library('cli')"  # [ppc64le]
+    - $R -e "library('cli')"                  # [not win]
     - "\"%R%\" -e \"library('cli')\""         # [win]
 
 about:
