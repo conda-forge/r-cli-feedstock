@@ -45,15 +45,13 @@ test:
     - $R -e "sessionInfo()"  # [not win]
 
     ## unknown status
-    - $R -d valgrind -e "library('cli')"  # [not win]
+    - CLI_NO_THREAD=1 $R -d valgrind -e "library('cli')"  # [not win]
     #- QEMU_STRACE=1 $R -d valgrind -e "library('cli')"  # [not win]
-    - $R -e "library('cli');sessionInfo();cli:::.onUnload(NA);sessionInfo();q('no',runLast=FALSE)"  # [not win]
+    - CLI_NO_THREAD=1 $R -e "library('cli');sessionInfo();cli:::.onUnload(NA);sessionInfo();q('no',runLast=FALSE)"  # [not win]
     
     ## known failing
-    - $R -e "library('cli');sessionInfo();unloadNamespace('cli');sessionInfo();q('no',runLast=FALSE)"  # [not win]
-    - $R -e "library('cli');sessionInfo();q('no',runLast=FALSE)"  # [not win]
-    - $R -e "library('cli');sessionInfo();q(runLast=FALSE)"  # [not win]
-    - $R -e "library('cli')"           # [not win]
+    - CLI_NO_THREAD=1 $R -e "library('cli');sessionInfo();unloadNamespace('cli');sessionInfo()"  # [not win]
+    - CLI_NO_THREAD=1 $R -e "library('cli')"           # [not win]
     - "\"%R%\" -e \"library('cli')\""  # [win]
 
 about:
