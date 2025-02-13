@@ -12,47 +12,39 @@ source:
   sha256: 4295085f11221c54b1dd2b1d39a675a85dfd9f900294297567e1d36f65ac4841
 
 build:
-  number: 1
+  number: 2
   rpaths:
     - lib/R/lib/
     - lib/
-  skip: true  # [not ppc64le]
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 requirements:
   build:
-    - {{ compiler('c') }}              # [not win]
-    - {{ stdlib("c") }}                # [not win]
-    - {{ compiler('m2w64_c') }}        # [win]
-    - {{ stdlib("m2w64_c") }}          # [win]
-    - {{ compiler('cxx') }}            # [not win]
-    - {{ compiler('m2w64_cxx') }}      # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+    - {{ compiler('c') }}          # [not win]
+    - {{ stdlib("c") }}            # [not win]
+    - {{ compiler('m2w64_c') }}    # [win]
+    - {{ stdlib("m2w64_c") }}      # [win]
+    - {{ compiler('cxx') }}        # [not win]
+    - {{ compiler('m2w64_cxx') }}  # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}make
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
-    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
   run:
     - r-base
 
 test:
-  requires:
-    - valgrind
   commands:
-    ## known passing
-    - $R -e "sessionInfo()"  # [not win]
-
-    ## unknown status
-    - CLI_NO_THREAD=1 $R -d valgrind -e "library('cli')"  # [not win]
-    #- QEMU_STRACE=1 $R -d valgrind -e "library('cli')"  # [not win]
-    - CLI_NO_THREAD=1 $R -e "library('cli');sessionInfo();cli:::.onUnload(NA);sessionInfo();q('no',runLast=FALSE)"  # [not win]
-    
-    ## known failing
-    - CLI_NO_THREAD=1 $R -e "library('cli');sessionInfo();unloadNamespace('cli');sessionInfo()"  # [not win]
-    - CLI_NO_THREAD=1 $R -e "library('cli')"           # [not win]
-    - "\"%R%\" -e \"library('cli')\""  # [win]
+    - $R -e "library('cli')"                  # [not (win or ppc64le)]
+    - CLI_NO_THREAD=1 $R -e "library('cli')"  # [ppc64le]
+    - "\"%R%\" -e \"library('cli')\""         # [win]
 
 about:
   home: https://cli.r-lib.org
